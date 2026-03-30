@@ -1,0 +1,39 @@
+# Virtual Environment
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Database lokal (kalau ada)
+*.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# VS Code / Editor
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+
+# Uvicorn / runtime
+*.pid
+*.sock

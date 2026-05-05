@@ -1,9 +1,0 @@
-Panduan menjalankan venv python :
-1. membuat venv
-    python -m venv .venv
-2. mengaktifkan venv
-    source .venv/bin/activate
-3. menggunakan venv
-    pip install <nama_paket>
-4. menonaktifkan venv
-    deactivate

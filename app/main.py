@@ -1,28 +1,23 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from sqlalchemy import text
-from db.database import SessionLocal
-from models.models import Berita
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.routers import user
+from app.db.database import engine, Base
 
-from db.database import engine
+Base.metadata.create_all(bind=engine)
 
-print(engine)
+app = FastAPI(title="My FastAPI App")
 
-app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"], # Next.js
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+# ROUTER
+app.include_router(user.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Da jalan ini barang pis !!!"}
-
-@app.get("/berita")
-def get_berita(db: Session = Depends(get_db)):
-    result = db.execute(text("SELECT * FROM berita LIMIT 5"))
-    data = [dict(row._mapping) for row in result]
-    return data
+    return {"message": "Gaspol! Backend sudah jalan."}

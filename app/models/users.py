@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Text, DateTime
+from sqlalchemy.orm import relationship
 from app.db.database import Base
 
 class User(Base):
@@ -14,3 +15,6 @@ class User(Base):
     createdAt = Column(DateTime, nullable=True)
     editedAt = Column(DateTime, nullable=True)
     editedBy = Column(String(25), nullable=True)
+
+    # relasi
+    transaksi = relationship("Transaksi", back_populates="user")

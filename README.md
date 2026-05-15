@@ -87,7 +87,7 @@ def get_users():
 ## ▶️ 6. Run the Server
 
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 Explanation:

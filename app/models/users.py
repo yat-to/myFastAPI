@@ -17,4 +17,3 @@ class User(Base):
     editedBy = Column(String(25), nullable=True)
 
     # relasi
-    transaksi = relationship("Transaksi", back_populates="user")

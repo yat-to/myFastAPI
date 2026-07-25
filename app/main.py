@@ -5,7 +5,7 @@ from app.db.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="My FastAPI App")
+app = FastAPI(title="PERAK")
 
 app.add_middleware(
     CORSMiddleware,

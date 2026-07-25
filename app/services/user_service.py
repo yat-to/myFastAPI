@@ -27,5 +27,6 @@ def login_user(db: Session, credentials: UserLogin):
             "email": user.email,
             "hp": user.hp,
             "menu_klp": user.menu_klp,
-        }
+        },
+        "_user": user
     }

@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.db.database import get_db
@@ -21,7 +23,8 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
 
     result =  user_service.login_user(db, credentials)
 
-    print(f"✅ LOGIN BERHASIL : {credentials.username}")
+    print(f"✅ LOGIN BERHASIL :")
+    pprint(result, sort_dicts=False)
     print("=" * 40)
 
     return result

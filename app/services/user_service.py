@@ -16,6 +16,7 @@ def login_user(db: Session, credentials: UserLogin):
         raise HTTPException(status_code=401, detail="Password Salah !!!")
 
     token = create_access_token({"sub": user.username, "name": user.nama})
+
     return {
         "access_token": token,
         "token_type": "bearer",
@@ -24,5 +25,7 @@ def login_user(db: Session, credentials: UserLogin):
             "username": user.username,
             "nama": user.nama,
             "email": user.email,
+            "hp": user.hp,
+            "menu_klp": user.menu_klp,
         }
     }

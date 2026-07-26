@@ -1,4 +1,5 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from sqlalchemy import Column, String, Text, DateTime, JSON
 
@@ -30,4 +31,7 @@ class Log(Base):
 
     status = Column(String(20), default="SUCCESS")
 
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(
+        DateTime(timezone=True),
+        default=lambda: datetime.now(ZoneInfo("Asia/Makassar"))
+    )

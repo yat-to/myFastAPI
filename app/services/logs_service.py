@@ -1,4 +1,6 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
 import uuid
 
 from sqlalchemy.orm import Session
@@ -40,10 +42,8 @@ def save_log(
             user_agent=request.headers.get("user-agent") if request else None,
 
             status=status,
-
-            created_at=datetime.utcnow()
         )
-
+        
         db.add(log)
         db.commit()
         
